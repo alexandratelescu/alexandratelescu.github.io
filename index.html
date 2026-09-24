@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alexandra Telescu | Machine learning for health</title>
+<meta name="description" content="Alexandra Telescu: mathematics and computer science graduate of Babeș-Bolyai University, working on scientific machine learning and physics-informed neural networks, aiming at AI for health.">
+<meta property="og:title" content="Alexandra Telescu | Machine learning for health">
+<meta property="og:description" content="Scientific machine learning, physics-informed neural networks and AI for health.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A2540'/%3E%3Ctext x='16' y='22' font-size='15' text-anchor='middle' fill='%23FF8FB1' font-family='sans-serif'%3EAT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Alexandra Telescu","alternateName":"Alexandra-Elena Telescu","url":"https://alexandratelescu.github.io","alumniOf":"Babeș-Bolyai University","knowsAbout":["Scientific machine learning","Physics-informed neural networks","Numerical analysis","AI in healthcare"],"sameAs":["https://github.com/alexandratelescu"]}
+</script>
+<style>
+:root{--bg:#F5F7FA;--ink:#14202E;--muted:#54657A;--line:#D5DEE8;--accent:#1F4FD8;--tint:#E4ECFB;--night:#0A2540;--rose:#FF8FB1}
+@media(prefers-color-scheme:dark){:root{--bg:#0C1826;--ink:#E6EDF5;--muted:#95A6B8;--line:#22344A;--accent:#8FAEFF;--tint:#152640}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.7 "Source Serif 4",Georgia,serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+h1,h2,h3,.sans{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+header{position:sticky;top:0;z-index:10;background:rgba(10,37,64,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
+.brand{font-weight:700;text-decoration:none}
+nav{display:flex;gap:6px 22px;flex-wrap:wrap;font:500 .95rem "Bricolage Grotesque",system-ui,sans-serif}
+nav a{text-decoration:none;color:#C7D6EA}
+nav a:hover{color:var(--rose)}
+.hero{position:relative;background:var(--night);color:#fff;overflow:hidden}
+#flow{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center;min-height:min(82vh,720px);padding-top:56px;padding-bottom:72px;pointer-events:none}
+.hero a{pointer-events:auto}
+h1{font-size:clamp(2.9rem,8vw,5.8rem);line-height:.98;letter-spacing:-.035em;margin:0 0 22px;font-weight:700;text-shadow:0 2px 24px rgba(10,37,64,.9)}
+.lead{font-size:1.3rem;max-width:32ch;margin:0 0 32px;color:#D6E3F5;text-shadow:0 2px 18px rgba(10,37,64,.9)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font:500 1rem "Bricolage Grotesque",system-ui,sans-serif;padding:13px 24px;border-radius:999px;border:1.5px solid rgba(255,255,255,.55);text-decoration:none;color:#fff;background:rgba(10,37,64,.35)}
+.btn:hover{border-color:var(--rose);color:var(--rose)}
+.btn.primary{background:var(--rose);border-color:var(--rose);color:var(--night)}
+.btn.primary:hover{background:#fff;border-color:#fff;color:var(--night)}
+.portrait{position:relative;width:100%;max-width:320px;aspect-ratio:4/5;justify-self:center}
+.frame{position:absolute;inset:0;border-radius:999px 999px 28px 28px;overflow:hidden;background:#12345C;display:grid;place-items:center;box-shadow:0 0 0 1px rgba(255,255,255,.25),0 0 0 10px rgba(255,143,177,.12),0 30px 60px rgba(0,0,0,.4)}
+.frame span{font:700 4.5rem "Bricolage Grotesque",system-ui,sans-serif;color:var(--rose)}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+section{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:56px 0;border-top:1px solid var(--line);scroll-margin-top:56px}
+main>section:first-of-type{border-top:0}
+h2{font-size:1.6rem;margin:0;letter-spacing:-.015em;line-height:1.2}
+h3{font-size:1.15rem;margin:0 0 2px;line-height:1.3}
+p{margin:0 0 1em;max-width:64ch}
+ul.plain{margin:8px 0 0;padding-left:1.1em;max-width:64ch}
+ul.plain li{margin-bottom:4px}
+.timeline{list-style:none;margin:0;padding:0 0 0 24px;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding-bottom:32px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-31px;top:.5em;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.timeline li.now::before{background:var(--accent);box-shadow:0 0 0 5px var(--tint)}
+.when{font:500 .9rem "Bricolage Grotesque",system-ui,sans-serif;color:var(--accent)}
+.muted{color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:14px 0 0}
+.tags li{font:500 .85rem "Bricolage Grotesque",system-ui,sans-serif;background:var(--tint);padding:4px 12px;border-radius:999px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px 32px;margin:28px 0 0;padding:24px 0 0;border-top:1px solid var(--line)}
+.facts dt{font:500 .9rem "Bricolage Grotesque",system-ui,sans-serif;color:var(--muted)}
+.facts dd{margin:2px 0 0;font-weight:600}
+.feature{background:var(--night);color:#fff;border-radius:20px;padding:32px;position:relative;overflow:hidden}
+.feature::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,143,177,.35),transparent 70%)}
+.feature p,.feature h3{position:relative;z-index:1}
+.feature h3{font-size:1.4rem;margin-bottom:10px}
+.feature p{color:#D6E3F5}
+.feature .tags li{background:rgba(255,255,255,.12);color:#fff;position:relative;z-index:1}
+.skills{display:grid;gap:22px}
+.skills h3{font-size:1rem;color:var(--muted);font-weight:500;margin-bottom:0}
+footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:.9rem}
+@media(max-width:780px){.hero .wrap{grid-template-columns:1fr;gap:36px;min-height:0;padding-top:44px}.portrait{max-width:250px;justify-self:start}section{grid-template-columns:1fr;gap:18px;padding:44px 0}}
+</style>
+</head>
+<body>
+<!--
+  CUM EDITEZI (Alexandra):
+  1. Poza: încarcă în repository un fișier photo.jpg (portret, aprox. 800x1000). Până atunci se vede "AT".
+  2. Email: caută "your-email@example.com" și pune adresa ta.
+  3. Nu urca CV-ul Europass pe site: conține data nașterii și adresa ta.
+  4. Proiecte / publicații: copiază șabloanele comentate din secțiuni și scoate <!-- și -->.
+-->
+<header>
+  <div class="wrap">
+    <a class="brand sans" href="#top">Alexandra Telescu</a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <canvas id="flow" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <h1>Alexandra Telescu</h1>
+      <p class="lead">Machine learning that respects the physics of the system, aimed at health and medical technology.</p>
+      <div class="actions">
+        <a class="btn primary" href="#research">Research</a>
+        <a class="btn" href="#education">Education</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="frame">
+        <span aria-hidden="true">AT</span>
+        <img src="photo.jpg" alt="Portrait of Alexandra Telescu" onerror="this.remove()">
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="about">
+    <h2>About</h2>
+    <div>
+      <p>I am a mathematics and computer science graduate of Babeș-Bolyai University, now in the master's programme in Applied Computational Intelligence. I work where numerical methods meet deep learning: solving differential equations, and learning from the data those models produce.</p>
+      <p>My goal is doctoral research in scientific machine learning for medical technology, where models must be accurate, interpretable and grounded in the underlying physiology.</p>
+      <dl class="facts">
+        <div><dt>Now</dt><dd>MSc student, Applied Computational Intelligence</dd></div>
+        <div><dt>Focus</dt><dd>Physics-informed neural networks</dd></div>
+        <div><dt>Aiming for</dt><dd>PhD in AI for medtech</dd></div>
+        <div><dt>Languages</dt><dd>Romanian (native), English (C1/C2)</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <ol class="timeline">
+      <li class="now">
+        <span class="when">2026 to present</span>
+        <h3>MSc, Applied Computational Intelligence</h3>
+        <span class="muted">Babeș-Bolyai University, Faculty of Mathematics and Computer Science</span>
+      </li>
+      <li>
+        <span class="when">2023 to 2026</span>
+        <h3>BSc, Mathematics (Mathematics and Computer Science)</h3>
+        <span class="muted">Babeș-Bolyai University, Faculty of Mathematics and Computer Science</span>
+        <p style="margin-top:10px">Bachelor's thesis: an independent research project applying physics-informed neural networks to a two-compartment Darcy flow model, with a custom finite volume solver and deep learning for inverse parameter recovery.</p>
+        <ul class="tags">
+          <li>Partial differential equations</li><li>Numerical analysis</li><li>Functional analysis</li><li>Probability and statistics</li><li>Optimization</li><li>Artificial intelligence</li>
+        </ul>
+      </li>
+      <li>
+        <span class="when">2019 to 2023</span>
+        <h3>High school diploma, Mathematics and Computer Science</h3>
+        <span class="muted">“Traian Lalescu” National College, Reșița</span>
+      </li>
+    </ol>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ol class="timeline">
+      <li>
+        <span class="when">March to June 2025</span>
+        <h3>Web developer intern, Soft Build SRL</h3>
+        <span class="muted">Timișoara, Romania (remote)</span>
+        <ul class="plain">
+          <li>Developed and maintained web application features in HTML, CSS, JavaScript and PHP.</li>
+          <li>Worked with SQL databases for data storage and queries.</li>
+          <li>Collaborated remotely with the development team.</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <section id="research">
+    <h2>Research</h2>
+    <div>
+      <p>I am interested in machine learning that uses what we know about the underlying system, especially when that system is the human body.</p>
+      <ul class="tags" style="margin-bottom:32px">
+        <li>Scientific machine learning</li><li>Physics-informed neural networks</li><li>Inverse problems</li><li>Computational fluid dynamics</li><li>AI in healthcare</li>
+      </ul>
+      <div class="feature">
+        <h3>Physics-informed neural networks for Darcy flow</h3>
+        <p>A custom finite volume solver in OpenFOAM simulates a two-compartment Darcy flow model. Physics-informed neural networks then recover the unknown parameters of that model from the flow data, an inverse problem central to modelling flow in porous media and in tissue.</p>
+        <ul class="tags"><li>PINNs</li><li>OpenFOAM</li><li>DeepXDE</li><li>PyTorch</li><li>Finite volume method</li></ul>
+      </div>
+      <h3 style="margin-top:36px">Publications</h3>
+      <p class="muted">Papers, preprints and posters will be listed here.</p>
+      <!-- ȘABLON PUBLICAȚIE: <p><strong>Title.</strong> Authors. Venue, year. <a href="URL">Paper</a></p> -->
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div><h3>Scientific computing and machine learning</h3>
+        <ul class="tags"><li>Python</li><li>NumPy</li><li>Pandas</li><li>Matplotlib</li><li>scikit-learn</li><li>PyTorch</li><li>DeepXDE</li><li>OpenFOAM</li><li>Numerical analysis</li><li>Differential equations</li><li>Mathematical modelling</li></ul></div>
+      <div><h3>Software development</h3>
+        <ul class="tags"><li>Java</li><li>C++</li><li>C#</li><li>JavaScript</li><li>PHP</li><li>SQL</li><li>HTML and CSS</li><li>Data structures and algorithms</li></ul></div>
+    </div>
+    <!-- Proiecte noi: adaugă o secțiune "Projects" copiind blocul .feature din Research. -->
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div>
+      <p>I am happy to talk about research, collaborations and doctoral opportunities.</p>
+      <p><a href="mailto:alexandra.telescu@stud.ubbcluj.ro">alexandra.telescu@stud.ubbcluj.ro</a><br>
+      <a href="https://github.com/alexandratelescu">github.com/alexandratelescu</a></p>
+      <!-- LinkedIn: <a href="https://www.linkedin.com/in/USERNAME">LinkedIn</a> -->
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Alexandra Telescu</div>
+</footer>
+
+<script>
+(function(){
+  var c=document.getElementById('flow'),x=c.getContext('2d'),hero=c.parentElement;
+  var w,h,d,P=[],t=0,run=true,m={x:-999,y:-999};
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){
+    d=Math.min(window.devicePixelRatio||1,2);
+    var r=hero.getBoundingClientRect();w=r.width;h=r.height;
+    c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0);
+    x.fillStyle='#0A2540';x.fillRect(0,0,w,h);
+    var n=Math.min(1400,Math.round(w*h/1500));
+    P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*w,y:Math.random()*h,a:Math.random()*200});
+  }
+  function psi(px,py){return Math.sin(px*.006+t*.15)*Math.cos(py*.007-t*.11)+.6*Math.sin((px+py)*.011+1.7-t*.1)}
+  function step(){
+    t+=.016;
+    x.fillStyle='rgba(10,37,64,.09)';x.fillRect(0,0,w,h);
+    x.lineWidth=1.1;
+    for(var i=0;i<P.length;i++){
+      var p=P[i],e=1;
+      var vx=(psi(p.x,p.y+e)-psi(p.x,p.y-e))/2*260;
+      var vy=-(psi(p.x+e,p.y)-psi(p.x-e,p.y))/2*260;
+      var dx=p.x-m.x,dy=p.y-m.y,ds=Math.sqrt(dx*dx+dy*dy);
+      if(ds<130&&ds>1){var f=(1-ds/130)*3;vx+=dx/ds*f;vy+=dy/ds*f}
+      var s=Math.sqrt(vx*vx+vy*vy),nx=p.x+vx,ny=p.y+vy;
+      x.strokeStyle='hsla('+(212+Math.min(s,2.2)*58)+',92%,76%,.75)';
+      x.beginPath();x.moveTo(p.x,p.y);x.lineTo(nx,ny);x.stroke();
+      p.x=nx;p.y=ny;p.a++;
+      if(p.x<0||p.x>w||p.y<0||p.y>h||p.a>260){p.x=Math.random()*w;p.y=Math.random()*h;p.a=0}
+    }
+  }
+  function loop(){if(run)step();requestAnimationFrame(loop)}
+  size();
+  if(reduce){for(var k=0;k<160;k++)step();window.addEventListener('resize',function(){size();for(var k=0;k<160;k++)step()});return}
+  hero.addEventListener('pointermove',function(ev){var r=hero.getBoundingClientRect();m.x=ev.clientX-r.left;m.y=ev.clientY-r.top});
+  hero.addEventListener('pointerleave',function(){m.x=m.y=-999});
+  window.addEventListener('resize',size);
+  new IntersectionObserver(function(en){run=en[0].isIntersecting}).observe(hero);
+  loop();
+})();
+</script>
+</body>
+</html>
