@@ -125,6 +125,14 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
         <ul class="tags"><li>PINNs</li><li>OpenFOAM</li><li>DeepXDE</li><li>PyTorch</li><li>Finite volume method</li></ul>
       </div>
     </div>
+    <!-- TEST TEMPORAR — șterge tot acest <div class="slide">...</div> când nu mai ai nevoie de el -->
+    <div class="slide">
+      <div class="feature">
+        <h3>Test slide — proiect fictiv</h3>
+        <p>Acesta e doar un slide de test, ca să vezi efectul de fade la schimbarea între proiecte. Șterge acest bloc întreg (de la comentariul TEST TEMPORAR până la </div> de mai jos) când adaugi proiectele tale reale.</p>
+        <ul class="tags"><li>Test</li><li>De șters</li></ul>
+      </div>
+    </div>
     <!-- ȘABLON PROIECT NOU -->
   </div>
 </div>
@@ -138,7 +146,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
       <dl class="facts">
         <div><dt>Now</dt><dd>MSc student, Applied Computational Intelligence</dd></div>
         <div><dt>Focus</dt><dd>Physics-informed neural networks</dd></div>
-        <div><dt>Aiming for</dt><dd>PhD in AI for MedTech</dd></div>
+        <div><dt>Aiming for</dt><dd>PhD in AI for medtech</dd></div>
         <div><dt>Languages</dt><dd>Romanian (native), English (C1/C2)</dd></div>
       </dl>
     </div>
@@ -189,6 +197,9 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
     <h2>Research</h2>
     <div>
       <p>I am interested in machine learning that uses what we know about the underlying system, especially when that system is the human body.</p>
+      <ul class="tags" style="margin-bottom:32px">
+        <li>Scientific machine learning</li><li>Physics-informed neural networks</li><li>Inverse problems</li><li>Computational fluid dynamics</li><li>AI in healthcare</li>
+      </ul>
       <h3 style="margin-top:36px">Publications</h3>
       <p class="muted">Papers, preprints and posters will be listed here.</p>
       <!-- ȘABLON PUBLICAȚIE: <p><strong>Title.</strong> Authors. Venue, year. <a href="URL">Paper</a></p> -->
@@ -306,7 +317,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
     slides[idx].classList.remove('is-active');
     idx=(idx+1)%slides.length;
     slides[idx].classList.add('is-active');
-  },6000);
+  },3000);
 })();
 </script>
 </body>
