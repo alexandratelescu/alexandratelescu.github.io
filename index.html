@@ -71,6 +71,10 @@ ul.plain li{margin-bottom:4px}
 .feature h3{font-size:1.4rem;margin-bottom:10px}
 .feature p{color:#D6E3F5}
 .feature .tags li{background:rgba(255,255,255,.12);color:#fff;position:relative;z-index:1}
+.projects-wrap{padding-top:44px}
+.slider{display:grid}
+.slide{grid-area:1/1;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 1s ease}
+.slide.is-active{opacity:1;visibility:visible;pointer-events:auto}
 .skills{display:grid;gap:22px}
 .skills h3{font-size:1rem;color:var(--muted);font-weight:500;margin-bottom:0}
 footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:.9rem}
@@ -107,6 +111,21 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
         <img src="photo.jpeg" alt="Portrait of Alexandra Telescu" onerror="this.remove()">
       </div>
     </div>
+  </div>
+</div>
+
+<div class="wrap projects-wrap">
+  <!-- Proiect nou: copiază tot blocul <div class="slide">...</div> de mai jos (cu tot cu .feature),
+       lipește-l ca frate, imediat înainte de comentariul ȘABLON, și schimbă textul. -->
+  <div class="slider" id="projectsSlider">
+    <div class="slide is-active">
+      <div class="feature">
+        <h3>Physics-informed neural networks for Darcy flow</h3>
+        <p>A custom finite volume solver in OpenFOAM simulates a two-compartment Darcy flow model. Physics-informed neural networks then recover the unknown parameters of that model from the flow data, an inverse problem central to modelling flow in porous media and in tissue.</p>
+        <ul class="tags"><li>PINNs</li><li>OpenFOAM</li><li>DeepXDE</li><li>PyTorch</li><li>Finite volume method</li></ul>
+      </div>
+    </div>
+    <!-- ȘABLON PROIECT NOU -->
   </div>
 </div>
 
@@ -170,14 +189,6 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
     <h2>Research</h2>
     <div>
       <p>I am interested in machine learning that uses what we know about the underlying system, especially when that system is the human body.</p>
-      <ul class="tags" style="margin-bottom:32px">
-        <li>Scientific machine learning</li><li>Physics-informed neural networks</li><li>Inverse problems</li><li>Computational fluid dynamics</li><li>AI in healthcare</li>
-      </ul>
-      <div class="feature">
-        <h3>Physics-informed neural networks for Darcy flow</h3>
-        <p>A custom finite volume solver in OpenFOAM simulates a two-compartment Darcy flow model. Physics-informed neural networks then recover the unknown parameters of that model from the flow data, an inverse problem central to modelling flow in porous media and in tissue.</p>
-        <ul class="tags"><li>PINNs</li><li>OpenFOAM</li><li>DeepXDE</li><li>PyTorch</li><li>Finite volume method</li></ul>
-      </div>
       <h3 style="margin-top:36px">Publications</h3>
       <p class="muted">Papers, preprints and posters will be listed here.</p>
       <!-- ȘABLON PUBLICAȚIE: <p><strong>Title.</strong> Authors. Venue, year. <a href="URL">Paper</a></p> -->
@@ -283,6 +294,19 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
   },{passive:true});
   window.addEventListener('resize',update);
   update();
+})();
+
+(function(){
+  var slides=document.querySelectorAll('#projectsSlider .slide');
+  if(slides.length<2) return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+  var idx=0;
+  setInterval(function(){
+    slides[idx].classList.remove('is-active');
+    idx=(idx+1)%slides.length;
+    slides[idx].classList.add('is-active');
+  },6000);
 })();
 </script>
 </body>
