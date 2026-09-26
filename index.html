@@ -25,7 +25,8 @@ a{color:inherit}
 .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
 h1,h2,h3,.sans{font-family:"Bricolage Grotesque",system-ui,sans-serif}
 header{position:sticky;top:0;z-index:10;background:rgba(10,37,64,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff}
-header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;padding-top:16px;padding-bottom:16px}
+header nav{width:100%}
 .brand{font-weight:700;text-decoration:none}
 nav{display:flex;gap:6px 22px;flex-wrap:wrap;font:500 .95rem "Bricolage Grotesque",system-ui,sans-serif}
 nav a{text-decoration:none;color:#C7D6EA}
@@ -36,7 +37,7 @@ nav a:hover{color:var(--rose)}
 .hero a{pointer-events:auto}
 h1{font-size:clamp(2.9rem,8vw,5.8rem);line-height:.98;letter-spacing:-.035em;margin:0 0 22px;font-weight:700;text-shadow:0 2px 24px rgba(10,37,64,.9)}
 .lead{font-size:1.3rem;max-width:32ch;margin:0 0 32px;color:#D6E3F5;text-shadow:0 2px 18px rgba(10,37,64,.9)}
-.actions{display:flex;flex-wrap:wrap;gap:12px}
+.actions{display:flex;flex-wrap:wrap;gap:14px;width:100%;justify-content:space-between}
 .btn{font:500 1rem "Bricolage Grotesque",system-ui,sans-serif;padding:13px 24px;border-radius:999px;border:1.5px solid rgba(255,255,255,.55);text-decoration:none;color:#fff;background:rgba(10,37,64,.35);transition:background-color .15s,border-color .15s,color .15s}
 .btn:hover{border-color:var(--rose);color:var(--rose)}
 .btn.primary{background:var(--rose);border-color:var(--rose);color:var(--night)}
@@ -255,14 +256,31 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
   document.querySelectorAll('header .actions .btn').forEach(function(a){
     links[a.getAttribute('href').slice(1)]=a;
   });
+  var order=Object.keys(links);
+  var lastId=order[order.length-1];
   function setActive(id){
     Object.keys(links).forEach(function(k){links[k].classList.toggle('primary',k===id)});
   }
+  order.forEach(function(id){
+    links[id].addEventListener('click',function(){setActive(id)});
+  });
   var sections=document.querySelectorAll('main section[id]');
   var obs=new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
   },{rootMargin:'-72px 0px -65% 0px',threshold:0});
   sections.forEach(function(s){obs.observe(s)});
+
+  function checkBottom(){
+    var doc=document.documentElement;
+    var atBottom=window.innerHeight+window.scrollY>=doc.scrollHeight-4;
+    if(!atBottom) return;
+    var lastEl=document.getElementById(lastId);
+    var rect=lastEl.getBoundingClientRect();
+    if(rect.top<window.innerHeight*0.5){setActive(lastId)}
+  }
+  window.addEventListener('scroll',checkBottom,{passive:true});
+  window.addEventListener('resize',checkBottom);
+  checkBottom();
 })();
 </script>
 </body>
