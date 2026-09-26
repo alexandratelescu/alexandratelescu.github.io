@@ -37,7 +37,7 @@ nav a:hover{color:var(--rose)}
 h1{font-size:clamp(2.9rem,8vw,5.8rem);line-height:.98;letter-spacing:-.035em;margin:0 0 22px;font-weight:700;text-shadow:0 2px 24px rgba(10,37,64,.9)}
 .lead{font-size:1.3rem;max-width:32ch;margin:0 0 32px;color:#D6E3F5;text-shadow:0 2px 18px rgba(10,37,64,.9)}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
-.btn{font:500 1rem "Bricolage Grotesque",system-ui,sans-serif;padding:13px 24px;border-radius:999px;border:1.5px solid rgba(255,255,255,.55);text-decoration:none;color:#fff;background:rgba(10,37,64,.35)}
+.btn{font:500 1rem "Bricolage Grotesque",system-ui,sans-serif;padding:13px 24px;border-radius:999px;border:1.5px solid rgba(255,255,255,.55);text-decoration:none;color:#fff;background:rgba(10,37,64,.35);transition:background-color .15s,border-color .15s,color .15s}
 .btn:hover{border-color:var(--rose);color:var(--rose)}
 .btn.primary{background:var(--rose);border-color:var(--rose);color:var(--night)}
 .btn.primary:hover{background:#fff;border-color:#fff;color:var(--night)}
@@ -118,7 +118,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
       <dl class="facts">
         <div><dt>Now</dt><dd>MSc student, Applied Computational Intelligence</dd></div>
         <div><dt>Focus</dt><dd>Physics-informed neural networks</dd></div>
-        <div><dt>Aiming for</dt><dd>PhD in AI for medtech</dd></div>
+        <div><dt>Aiming for</dt><dd>PhD in AI for MedTech</dd></div>
         <div><dt>Languages</dt><dd>Romanian (native), English (C1/C2)</dd></div>
       </dl>
     </div>
@@ -248,6 +248,21 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
   window.addEventListener('resize',size);
   new IntersectionObserver(function(en){run=en[0].isIntersecting}).observe(hero);
   loop();
+})();
+
+(function(){
+  var links={};
+  document.querySelectorAll('header .actions .btn').forEach(function(a){
+    links[a.getAttribute('href').slice(1)]=a;
+  });
+  function setActive(id){
+    Object.keys(links).forEach(function(k){links[k].classList.toggle('primary',k===id)});
+  }
+  var sections=document.querySelectorAll('main section[id]');
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  },{rootMargin:'-72px 0px -65% 0px',threshold:0});
+  sections.forEach(function(s){obs.observe(s)});
 })();
 </script>
 </body>
