@@ -258,29 +258,31 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);f
   });
   var order=Object.keys(links);
   var lastId=order[order.length-1];
+  var sections=order.map(function(id){return document.getElementById(id)});
+
   function setActive(id){
     Object.keys(links).forEach(function(k){links[k].classList.toggle('primary',k===id)});
   }
   order.forEach(function(id){
     links[id].addEventListener('click',function(){setActive(id)});
   });
-  var sections=document.querySelectorAll('main section[id]');
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-  },{rootMargin:'-72px 0px -65% 0px',threshold:0});
-  sections.forEach(function(s){obs.observe(s)});
 
-  function checkBottom(){
+  var ticking=false;
+  function update(){
+    ticking=false;
     var doc=document.documentElement;
-    var atBottom=window.innerHeight+window.scrollY>=doc.scrollHeight-4;
-    if(!atBottom) return;
-    var lastEl=document.getElementById(lastId);
-    var rect=lastEl.getBoundingClientRect();
-    if(rect.top<window.innerHeight*0.5){setActive(lastId)}
+    if(window.innerHeight+window.scrollY>=doc.scrollHeight-2){setActive(lastId);return}
+    var line=80,current=order[0];
+    for(var i=0;i<sections.length;i++){
+      if(sections[i].getBoundingClientRect().top<=line){current=order[i]}
+    }
+    setActive(current);
   }
-  window.addEventListener('scroll',checkBottom,{passive:true});
-  window.addEventListener('resize',checkBottom);
-  checkBottom();
+  window.addEventListener('scroll',function(){
+    if(!ticking){requestAnimationFrame(update);ticking=true}
+  },{passive:true});
+  window.addEventListener('resize',update);
+  update();
 })();
 </script>
 </body>
